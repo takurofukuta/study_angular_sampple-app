@@ -1,1 +1,8 @@
-<p>item-list works!</p>
+<ng-container *ngFor="let item of items">
+  <div class="item-card">
+    <h1>{{ item.name }}</h1>
+    <p>商品コード：{{ item.id }}</p>
+    <p>値段：{{ item.price }} 円</p>
+    <p *ngIf="item.description">詳細：{{ item.description }}</p>
+  </div>
+</ng-container>
