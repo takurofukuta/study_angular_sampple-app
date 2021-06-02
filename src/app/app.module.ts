@@ -10,7 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ItemListComponent } from './item-list/item-list.component';
-
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, ItemListComponent],
   imports: [
@@ -20,6 +20,7 @@ import { ItemListComponent } from './item-list/item-list.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
