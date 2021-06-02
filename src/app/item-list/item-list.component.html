@@ -1,16 +1,32 @@
-<ng-container *ngFor="let item of items">
-  <mat-card class="item-card">
-    <mat-card-header>
-      <mat-card-title>{{ item.name }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <img mat-card-image [src]="item.image" />
-      <p>商品コード：{{ item.id }}</p>
-      <p>値段：{{ item.price }} 円</p>
-      <p *ngIf="item.description">詳細：{{ item.description }}</p>
-    </mat-card-content>
-    <mat-card-actions align="end">
-      <button mat-raised-button>Add to Cart</button>
-    </mat-card-actions>
-  </mat-card>
-</ng-container>
+<div class="card-area">
+  <ng-container *ngFor="let item of items">
+    <mat-card class="item-card">
+      <mat-card-header>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img mat-card-image [src]="item.image" />
+        <p>商品コード：{{ item.id }}</p>
+        <p>値段：{{ item.price }} 円</p>
+        <p *ngIf="item.description">詳細：{{ item.description }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button (click)="addCart(item); countItem(cart)">
+          Add to Cart
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+
+  <ng-container *ngIf="cart.length">
+    <hr />
+    <h2>Cart</h2>
+    <ul>
+      <ng-container *ngFor="let item of cartList(cart)">
+        <li>
+          {{ item.name }} <span>数量：{{ count[item.name] }}</span>
+        </li>
+      </ng-container>
+    </ul>
+  </ng-container>
+</div>

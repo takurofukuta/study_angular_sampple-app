@@ -7,7 +7,7 @@ import { Item } from '../item.interface';
 })
 export class ItemListComponent implements OnInit {
   cart: Item[] = [];
-
+  count: object;
   items: Item[] = [
     {
       id: 1,
@@ -36,6 +36,17 @@ export class ItemListComponent implements OnInit {
 
   addCart(item: Item) {
     return this.cart.push(item);
+  }
+
+  cartList(cart: Item[]): Item[] {
+    return Array.from(new Set(cart));
+  }
+
+  countItem(cart: Item[]) {
+    this.count = {};
+    cart.forEach((i) => {
+      return (this.count[i.name] = (this.count[i.name] || 0) + 1);
+    });
   }
 
   ngOnInit(): void {}

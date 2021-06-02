@@ -16,3 +16,9 @@
   flex-grow: 1;
   overflow: auto;
 }
+
+.card-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
